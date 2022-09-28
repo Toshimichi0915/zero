@@ -3,6 +3,7 @@ package net.toshimichi.zero
 import net.minestom.server.command.builder.Command
 import net.minestom.server.command.builder.arguments.ArgumentType
 import net.minestom.server.entity.Entity
+import net.minestom.server.entity.EntityType
 import net.minestom.server.entity.Player
 
 class SummonCommand : Command("summon") {
@@ -25,7 +26,12 @@ class SummonCommand : Command("summon") {
                 return@addSyntax
             }
             val position = sender.position
-            val entityInstance = Entity(entity)
+            val entityInstance =
+                if (entity == EntityType.PIG) {
+                    PigCreature()
+                } else {
+                    Entity(entity)
+                }
             entityInstance.setInstance(instance, position)
         }, entityArgument)
     }
