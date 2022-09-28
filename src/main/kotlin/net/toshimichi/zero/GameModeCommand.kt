@@ -31,6 +31,16 @@ class GameModeCommand : Command("gamemode") {
                     sender.sendMessage("You are now in survival mode")
                 }
 
+                "spectator", "sp" -> {
+                    sender.gameMode = GameMode.SPECTATOR
+                    sender.sendMessage("You are now in spectator mode")
+                }
+
+                "adventure", "a" -> {
+                    sender.gameMode = GameMode.ADVENTURE
+                    sender.sendMessage("You are now in adventure mode")
+                }
+
                 else -> {
                     sender.sendMessage("Invalid gamemode")
                 }
